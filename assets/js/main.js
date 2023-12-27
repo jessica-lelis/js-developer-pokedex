@@ -1,4 +1,5 @@
 const pokemonList = document.getElementById('pokemonList')
+const pokemonListDetails = document.getElementById('pokemonListDetails')
 const loadMoreButton = document.getElementById('loadMoreButton')
 
 const maxRecords = 151
@@ -7,6 +8,7 @@ let offset = 0;
 
 function convertPokemonToLi(pokemon) {
     return `
+    <button class="pokemon-button" type="button" onclick="detailsButton(${pokemon.number})">
         <li class="pokemon ${pokemon.type}">
             <span class="number">#${pokemon.number}</span>
             <span class="name">${pokemon.name}</span>
@@ -19,12 +21,14 @@ function convertPokemonToLi(pokemon) {
                 <img src="${pokemon.photo}"
                      alt="${pokemon.name}">
             </div>
-        </li>
+        </li>   
+        </button>
     `
 }
 
 function loadPokemonItens(offset, limit) {
     pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
+        
         const newHtml = pokemons.map(convertPokemonToLi).join('')
         pokemonList.innerHTML += newHtml
     })
@@ -45,3 +49,12 @@ loadMoreButton.addEventListener('click', () => {
         loadPokemonItens(offset, limit)
     }
 })
+
+
+function detailsButton(id) {
+    pokeApi.getPokemonsD(id).then((pokemons = []) => {
+       console.log(pokemons)
+    })
+  //  window.location.href = "./detalhes.html";
+    
+ }

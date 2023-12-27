@@ -146,6 +146,17 @@
     border-radius: 1rem;
 }
 
+.pokemon-button {
+    background-color:transparent;
+    border: none;
+}
+
+.pokemon-button :hover{
+    background-color:rgb(82, 82, 82);
+    border: none;
+    cursor: pointer;
+}
+
 @media screen and (min-width: 380px) {
     .pokemons {
         grid-template-columns: 1fr 1fr;

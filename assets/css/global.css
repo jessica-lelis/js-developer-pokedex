@@ -4,14 +4,18 @@
 }
 
 body {
-    background-color: #f6f8fc;
+    background-color: #222222;
+}
+
+h1 {
+    color: aliceblue;
 }
 
 .content {
     width: 100vw;
     height: 100vh;
     padding: 1rem;
-    background-color: #fff;
+    background-color: #222222;
 }
 
 @media screen and (min-width: 992px) {
