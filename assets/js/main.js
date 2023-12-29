@@ -12,12 +12,11 @@ function convertPokemonToLi(pokemon) {
     <button class="pokemon-button" type="button" onclick="detailsButton(${pokemon.number})">
         <li class="pokemon ${pokemon.type}">
             <span class="number">#${pokemon.number}</span>
-            <span class="name">${pokemon.name}</span>
-
             <div class="detail">
                 <img src="${pokemon.photo}"
                      alt="${pokemon.name}">
             </div>
+            <span class="name">${pokemon.name}</span>
         </li>   
         </button>
     `

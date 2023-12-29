@@ -43,28 +43,42 @@ pokeApiDetail.getPokemonDetailById = (id) => {
 
 function convertPokemonToDetail(pokemon) {
     return `
-      <button class="pokemon-button" type="button" onclick="returnButton()">
-          <li class="pokemon ${pokemon.type}">
-              <span class="number">#${pokemon.number}</span>
-              <span class="name">${pokemon.name}</span>
-  
-              <div class="detail">
-                  <ol class="types">
-                      ${pokemon.types.map((type) => `<li class="type ${type}">${type}</li>`).join('')}
-                  </ol>
-  
-                  <img src="${pokemon.photo}"
-                       alt="${pokemon.name}">
-              </div>
-          </li>   
-          </button>
-      `
+        <div class="detail-top ${pokemon.type}">
+            <button type="button" onclick="returnButton()"> Pokedex </button>
+            <img src="${pokemon.photo}" alt="${pokemon.name}">
+                <div class="detail_name">
+                <span class="number">#${pokemon.number}</span>
+                <span class="name">${pokemon.name}</span>
+                </div>
+        </div>
+        <div class="stats">
+            <span class="types li-details">${pokemon.types.map((type) => `<li class="type ${type} pokemon">${type}</li>`).join('')}</span>
+        </div>
+        <div class="kg-mt">
+            <div class="kg-mt">
+                <span>${pokemon.weight} KG</span>
+                weight
+            </div>
+            <div>
+                <span>${pokemon.height} M</span>
+                height
+            </div>
+        </div> 
+                
+                <span class="base_stats title">Base Stats</span>
+        <div class="base_stats">
+                <ol class="ol-stats">${pokemon.stats.map((stats) => `<li class="li-stats"> ${stats} </li>`).join('')}</ol>
+                <ol class="ol-stats">${pokemon.base_stat.map((base_stat) => `<li class="li-stats-num">${base_stat}</li>`).join('')}</ol>   
+        </div>
+        <span class="base_stats title">Experience: ${pokemon.exp}</span>
+
+    `
 }
 
 
 document.addEventListener('DOMContentLoaded', function () {
     const urlParams = new URLSearchParams(window.location.search);
-    const pokemonId = urlParams.get('id');  
+    const pokemonId = urlParams.get('id');
     pokeApiDetail.getPokemonDetailById(pokemonId).then((pokemon) => {
         console.log(pokemon)
         const newHtml2 = convertPokemonToDetail(pokemon);
