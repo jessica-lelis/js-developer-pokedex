@@ -54,19 +54,20 @@ function convertPokemonToDetail(pokemon) {
         <div class="stats">
             <span class="types li-details">${pokemon.types.map((type) => `<li class="type ${type} pokemon">${type}</li>`).join('')}</span>
         </div>
-        <div class="kg-mt">
+        <div class="kg">
             <div class="kg-mt">
                 <span>${pokemon.weight} KG</span>
-                weight
+                <span class="h-w">weight</span>
             </div>
-            <div>
+            <div class="kg-mt">
                 <span>${pokemon.height} M</span>
-                height
+                <span class="h-w">height</span>
             </div>
         </div> 
                 
                 <span class="base_stats title">Base Stats</span>
         <div class="base_stats">
+        
                 <ol class="ol-stats">${pokemon.stats.map((stats) => `<li class="li-stats"> ${stats} </li>`).join('')}</ol>
                 <ol class="ol-stats">${pokemon.base_stat.map((base_stat) => `<li class="li-stats-num">${base_stat}</li>`).join('')}</ol>   
         </div>
